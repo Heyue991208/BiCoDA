@@ -4,10 +4,6 @@
   <strong>A Bidirectional Cooperative Defect Analysis Model for Wafer Die Defect Detection and Semantic Segmentation</strong>
 </p>
 
-<p align="center">
-  <a href="https://github.com/Heyue991208/BiCoDA">GitHub Repository</a>
-</p>
-
 ---
 
 ## Overview
@@ -31,7 +27,7 @@ Results on the **Wafer-Defect-rv1vx** dataset:
 
 ## Requirements
 
-- Ubuntu 16.04
+- Ubuntu 24.04
 - Python 3.10
 - CUDA 13.0
 - PyTorch 2.12.1
