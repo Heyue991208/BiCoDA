@@ -1,6 +1,37 @@
 # BiCoDA
-BiCoDA: A Bidirectional Cooperative Defect Analysis Model for Wafer Die Defect Detection and Semantic Segmentation
 
-Wafer die defects vary widely in scale, texture, and morphology, making bounding boxes insufficient for describing irregular boundaries and segmentation alone inadequate for object-level localization. We propose BiCoDA, a unified model for defect detection and semantic segmentation. It uses a shared encoder with spatial, frequency-domain, and edge features, and enables bidirectional information exchange between detection and segmentation branches. Mask-guided box refinement further improves localization. On the Wafer-Defect-rv1vx dataset, BiCoDA achieves 78.72% mAP50, 52.84% mAP50-95, 82.32% Dice, and 72.32% IoU, with 42.71 million parameters and an inference speed of 86 FPS. 
+## A Bidirectional Cooperative Defect Analysis Model for Wafer Die Defect Detection and Semantic Segmentation
 
-The project code will be open-sourced soon.
+BiCoDA is a unified framework for wafer die defect detection and semantic segmentation. Wafer defects vary substantially in scale, texture, and morphology. Bounding boxes can be insufficient to represent irregular defect boundaries, while semantic segmentation alone does not provide reliable object-level classification and localization.
+
+BiCoDA addresses these complementary challenges through a shared feature encoder and bidirectional cooperation between its detection and segmentation branches. The model integrates spatial, frequency-domain, and edge representations. Segmentation features provide region and boundary cues to improve detection, while detection predictions provide class and location context to guide segmentation. During inference, predicted masks support geometric refinement of detection boxes.
+
+## Key Results
+
+Evaluated on the Wafer-Defect-rv1vx dataset, BiCoDA achieves:
+
+| Metric | Result |
+|---|---:|
+| mAP@0.5 | 78.72% |
+| mAP@0.5:0.95 | 52.84% |
+| Dice | 82.32% |
+| IoU | 72.32% |
+| Parameters | 42.71M |
+| Inference speed | 86 FPS |
+
+## Method Overview
+
+- **Shared feature encoding:** Combines spatial, frequency-domain, and edge representations.
+- **Bidirectional cooperation:** Exchanges complementary information between detection and segmentation.
+- **Mask-guided localization:** Uses predicted masks to refine detection-box geometry during inference.
+- **Joint prediction:** Supports defect classification, object-level localization, and pixel-level delineation in one framework.
+
+## Code Availability
+
+The source code for this study will be made publicly available at:
+
+[https://github.com/Heyue991208/BiCoDA](https://github.com/Heyue991208/BiCoDA)
+
+## Citation
+
+Citation details will be added when the publication information is available.
