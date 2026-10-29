@@ -1,17 +1,27 @@
-# BiCoDA
+<h1 align="center">BiCoDA</h1>
 
-## A Bidirectional Cooperative Defect Analysis Model for Wafer Die Defect Detection and Semantic Segmentation
+<p align="center">
+  <strong>A Bidirectional Cooperative Defect Analysis Model for Wafer Die Defect Detection and Semantic Segmentation</strong>
+</p>
 
-BiCoDA is a unified framework for wafer die defect detection and semantic segmentation. Wafer defects vary substantially in scale, texture, and morphology. Bounding boxes can be insufficient to represent irregular defect boundaries, while semantic segmentation alone does not provide reliable object-level classification and localization.
+<p align="center">
+  <a href="https://github.com/Heyue991208/BiCoDA">GitHub Repository</a>
+</p>
 
-BiCoDA addresses these complementary challenges through a shared feature encoder and bidirectional cooperation between its detection and segmentation branches. The model integrates spatial, frequency-domain, and edge representations. Segmentation features provide region and boundary cues to improve detection, while detection predictions provide class and location context to guide segmentation. During inference, predicted masks support geometric refinement of detection boxes.
+---
 
-## Key Results
+## Overview
 
-Evaluated on the Wafer-Defect-rv1vx dataset, BiCoDA achieves:
+Wafer die defects vary in scale, texture, and morphology. Bounding boxes may not adequately represent irregular defect boundaries, while segmentation alone does not provide object-level localization.
+
+**BiCoDA** jointly addresses these challenges through a shared encoder and bidirectional information exchange between detection and segmentation branches. It integrates spatial, frequency-domain, and edge features. Segmentation masks also guide detection-box refinement during inference.
+
+## Results
+
+Results on the **Wafer-Defect-rv1vx** dataset:
 
 | Metric | Result |
-|---|---:|
+|:--|--:|
 | mAP@0.5 | 78.72% |
 | mAP@0.5:0.95 | 52.84% |
 | Dice | 82.32% |
@@ -19,19 +29,17 @@ Evaluated on the Wafer-Defect-rv1vx dataset, BiCoDA achieves:
 | Parameters | 42.71M |
 | Inference speed | 86 FPS |
 
-## Method Overview
+## Requirements
 
-- **Shared feature encoding:** Combines spatial, frequency-domain, and edge representations.
-- **Bidirectional cooperation:** Exchanges complementary information between detection and segmentation.
-- **Mask-guided localization:** Uses predicted masks to refine detection-box geometry during inference.
-- **Joint prediction:** Supports defect classification, object-level localization, and pixel-level delineation in one framework.
+- Ubuntu 16.04
+- Python 3.10
+- CUDA 13.0
+- PyTorch 2.12.1
 
-## Code Availability
+## Installation
 
-The source code for this study will be made publicly available at:
+Create and activate the Conda environment:
 
-[https://github.com/Heyue991208/BiCoDA](https://github.com/Heyue991208/BiCoDA)
-
-## Citation
-
-Citation details will be added when the publication information is available.
+```bash
+conda env create --name bicoda --file environment.yml
+conda activate bicoda
